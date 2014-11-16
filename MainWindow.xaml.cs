@@ -184,20 +184,14 @@ namespace Microsoft.Samples.Kinect.DepthBasics
         /// <param name="e">event arguments</param>
         private void ButtonScreenshotClick(object sender, RoutedEventArgs e)
         {
+           //load image to be processed
             Bitmap myimage = new Bitmap("c:\\Octave\\scripts\\mybasicimage.png");
-            PictureBox pictureBox1 = new System.Windows.Forms.PictureBox();
-            double sigma = 1.2;
-            float k = 0.4f;
-            float threshold = 200000f;
+           
 
-            // Create a new Harris Corners Detector using the given parameters
-            HarrisCornersDetector fast = new HarrisCornersDetector();
-            //{
-            //    Suppress = true, // suppress non-maximum points
-            //    Threshold = 40   // less leads to more corners
-            //};
+            // Create a new Corners Detector using the given parameters
+            HarrisCornersDetector fast = new HarrisCornersDetector();            
 
-
+            //create an arry of those pixel deemed to be corners of the image
             System.Collections.Generic.List<AForge.IntPoint> corners = fast.ProcessImage(myimage);
             //Process points
 
@@ -217,23 +211,43 @@ namespace Microsoft.Samples.Kinect.DepthBasics
 
             //Once the edge is found go to the po
             //create 
-            IntPoint P1 = new IntPoint(0, 0);
-            foreach( AForge.IntPoint corner in corners)
+           
+            //Measure distance between two points in the corners matrix
+            for (int i = 0; i < 4; i++)
             {
+                //if the array element integer is even measure the x distance between itself and the next point in the array
+                if (i%2 == 0)
+                {
+                    float xDist = corners[i + 1].X - corners[i].X;
+                    
 
-                float xDist = P1.X - corner.X;
-                float yDist = P1.Y - corner.Y;
-                float distance = P1.DistanceTo(corner);
-                System.Console.WriteLine("The Straight Line Distance Between P1 and Point {0} is {1}", corner, distance);
-                System.Console.WriteLine("The X  Distance Between P1 and Point {0} is {1}", corner, xDist);
-                System.Console.WriteLine("The Y Line Distance Between P1 and Point {0} is {1}", corner, yDist);
+                    System.Console.WriteLine("From the For-loop: The X  Distance Between the Point ({0}) and Point ({1}) is {2}", corners[i], corners[i+1], xDist);
+                    
+                }
+                //if the element is the last element in the array measure between itself and the first point
+                else if (i == 3)               
+                {
+
+                    float yDist = corners[i].Y - corners[0].Y;
+
+                    System.Console.WriteLine("From the For-loop: The Y Line Distance Between the Point ({0}) and Point ({1}) is {2}", corners[i],corners[0], yDist);
+                } 
+                //if the array element integer is odd measure the y distance between itself and the next point in the array
+                else
+                {
+
+                    float yDist = corners[i + 1].Y - corners[i].Y;
+                    System.Console.WriteLine("From the For-loop: The Y Line Distance Between the Point ({0}) and Point ({1}) is {2}", corners[i], corners[i + 1], yDist);
+                }
             }
 
+            //create a green label for each corner in image
             PointsMarker marker = new PointsMarker(corners, System.Drawing.Color.Green,4);
 
             // Apply the corner-marking filter
             Bitmap markers = marker.Apply(myimage);
 
+            //save the image after it has mask applied to it
             markers.Save("c:\\Users\\Main\\Documents\\myNewimage.png", System.Drawing.Imaging.ImageFormat.Png);
 
             
