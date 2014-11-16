@@ -26,3 +26,31 @@ C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.5.2\Samples\C#\Depth
 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.5.2\Samples\C#\DepthBasics-WPF\bin\Debug\Accord.Imaging.xml
 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.5.2\Samples\C#\DepthBasics-WPF\bin\Debug\Accord.MachineLearning.xml
 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.5.2\Samples\C#\DepthBasics-WPF\bin\Debug\Accord.Statistics.xml
+C:\Users\Main\Documents\Image Processing\Plate Measuring\obj\Debug\DepthBasics-WPF.exe
+C:\Users\Main\Documents\Image Processing\Plate Measuring\obj\Debug\DepthBasics-WPF.pdb
+C:\Users\Main\Documents\Image Processing\Plate Measuring\bin\Debug\DepthBasics-WPF.exe
+C:\Users\Main\Documents\Image Processing\Plate Measuring\bin\Debug\DepthBasics-WPF.pdb
+C:\Users\Main\Documents\Image Processing\Plate Measuring\bin\Debug\Accord.dll
+C:\Users\Main\Documents\Image Processing\Plate Measuring\bin\Debug\Accord.Imaging.dll
+C:\Users\Main\Documents\Image Processing\Plate Measuring\bin\Debug\Accord.MachineLearning.dll
+C:\Users\Main\Documents\Image Processing\Plate Measuring\bin\Debug\Accord.Math.dll
+C:\Users\Main\Documents\Image Processing\Plate Measuring\bin\Debug\Accord.Statistics.dll
+C:\Users\Main\Documents\Image Processing\Plate Measuring\bin\Debug\AForge.dll
+C:\Users\Main\Documents\Image Processing\Plate Measuring\bin\Debug\AForge.Imaging.dll
+C:\Users\Main\Documents\Image Processing\Plate Measuring\bin\Debug\AForge.Math.dll
+C:\Users\Main\Documents\Image Processing\Plate Measuring\bin\Debug\Accord.xml
+C:\Users\Main\Documents\Image Processing\Plate Measuring\bin\Debug\Accord.Imaging.xml
+C:\Users\Main\Documents\Image Processing\Plate Measuring\bin\Debug\Accord.MachineLearning.xml
+C:\Users\Main\Documents\Image Processing\Plate Measuring\bin\Debug\Accord.Math.xml
+C:\Users\Main\Documents\Image Processing\Plate Measuring\bin\Debug\Accord.Statistics.xml
+C:\Users\Main\Documents\Image Processing\Plate Measuring\bin\Debug\AForge.xml
+C:\Users\Main\Documents\Image Processing\Plate Measuring\bin\Debug\AForge.Imaging.xml
+C:\Users\Main\Documents\Image Processing\Plate Measuring\bin\Debug\AForge.Math.xml
+C:\Users\Main\Documents\Image Processing\Plate Measuring\obj\Debug\DepthBasics-WPF.csprojResolveAssemblyReference.cache
+C:\Users\Main\Documents\Image Processing\Plate Measuring\obj\Debug\MainWindow.baml
+C:\Users\Main\Documents\Image Processing\Plate Measuring\obj\Debug\MainWindow.g.cs
+C:\Users\Main\Documents\Image Processing\Plate Measuring\obj\Debug\App.g.cs
+C:\Users\Main\Documents\Image Processing\Plate Measuring\obj\Debug\DepthBasics-WPF_MarkupCompile.cache
+C:\Users\Main\Documents\Image Processing\Plate Measuring\obj\Debug\DepthBasics-WPF.g.resources
+C:\Users\Main\Documents\Image Processing\Plate Measuring\obj\Debug\Microsoft.Samples.Kinect.DepthBasics.Properties.Resources.resources
+C:\Users\Main\Documents\Image Processing\Plate Measuring\obj\Debug\DepthBasics-WPF.csproj.GenerateResource.Cache
