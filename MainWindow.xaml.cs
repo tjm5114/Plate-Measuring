@@ -17,10 +17,14 @@ namespace Microsoft.Samples.Kinect.DepthBasics
     using System.Collections.Generic;
     using System.Drawing;
     using System.Drawing.Imaging;
+    using System;
     using Accord.Math;
     using AForge;
     using AForge.Imaging;
     using AForge.Imaging.Filters;
+    using Accord.Imaging;
+    using Accord.Imaging.Filters;
+
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -136,42 +140,45 @@ namespace Microsoft.Samples.Kinect.DepthBasics
             {
                 if (depthFrame != null)
                 {
-                    // Copy the pixel data from the image to a temporary array
-                    depthFrame.CopyPixelDataTo(this.depthPixels);
+                    //for (int j = 0; j < 100; j++)
+                    //{
+                        // Copy the pixel data from the image to a temporary array
+                        depthFrame.CopyPixelDataTo(this.depthPixels);
 
-                    // Convert the depth to RGB
-                    int colorPixelIndex = 0;
-                    for (int i = 0; i < this.depthPixels.Length; ++i)
-                    {
-                        // discard the portion of the depth that contains only the player index
-                        short depth = (short)(this.depthPixels[i] >> DepthImageFrame.PlayerIndexBitmaskWidth);
+                        // Convert the depth to RGB
+                        int colorPixelIndex = 0;
+                        for (int i = 0; i < this.depthPixels.Length; ++i)
+                        {
+                            // discard the portion of the depth that contains only the player index
+                            short depth = (short)(this.depthPixels[i] >> DepthImageFrame.PlayerIndexBitmaskWidth);
 
-                        // to convert to a byte we're looking at only the lower 8 bits
-                        // by discarding the most significant rather than least significant data
-                        // we're preserving detail, although the intensity will "wrap"
-                        // add 1 so that too far/unknown is mapped to black
-                        byte intensity = (byte)((depth + 1) & byte.MaxValue);
+                            // to convert to a byte we're looking at only the lower 8 bits
+                            // by discarding the most significant rather than least significant data
+                            // we're preserving detail, although the intensity will "wrap"
+                            // add 1 so that too far/unknown is mapped to black
+                            byte intensity = (byte)((depth + 1) & byte.MaxValue);
 
-                        // Write out blue byte
-                        this.colorPixels[colorPixelIndex++] = intensity;
+                            // Write out blue byte
+                            this.colorPixels[colorPixelIndex++] = intensity;
 
-                        // Write out green byte
-                        this.colorPixels[colorPixelIndex++] = intensity;
+                            // Write out green byte
+                            this.colorPixels[colorPixelIndex++] = intensity;
 
-                        // Write out red byte                        
-                        this.colorPixels[colorPixelIndex++] = intensity;
+                            // Write out red byte                        
+                            this.colorPixels[colorPixelIndex++] = intensity;
 
-                        // We're outputting BGR, the last byte in the 32 bits is unused so skip it
-                        // If we were outputting BGRA, we would write alpha here.
-                        ++colorPixelIndex;
-                    }
+                            // We're outputting BGR, the last byte in the 32 bits is unused so skip it
+                            // If we were outputting BGRA, we would write alpha here.
+                            ++colorPixelIndex;
+                        }
 
-                    // Write the pixel data into our bitmap
-                    this.colorBitmap.WritePixels(
-                        new Int32Rect(0, 0, this.colorBitmap.PixelWidth, this.colorBitmap.PixelHeight),
-                        this.colorPixels,
-                        this.colorBitmap.PixelWidth * sizeof(int),
-                        0);
+                        // Write the pixel data into our bitmap
+                        this.colorBitmap.WritePixels(
+                            new Int32Rect(0, 0, this.colorBitmap.PixelWidth, this.colorBitmap.PixelHeight),
+                            this.colorPixels,
+                            this.colorBitmap.PixelWidth * sizeof(int),
+                            0);
+                    //}
                 }
             }
         }
@@ -183,23 +190,65 @@ namespace Microsoft.Samples.Kinect.DepthBasics
         /// <param name="e">event arguments</param>
         private void ButtonScreenshotClick(object sender, RoutedEventArgs e)
         {
-            Bitmap myimage = new Bitmap("c:\\Octave\\scripts\\EdgeDetection.png");
+            Bitmap myimage = new Bitmap("c:\\Octave\\scripts\\mybasicimage.png");
             PictureBox pictureBox1 = new System.Windows.Forms.PictureBox();
             double sigma = 1.2;
             float k = 0.4f;
             float threshold = 200000f;
 
             // Create a new Harris Corners Detector using the given parameters
-            HarrisCornersDetector harris = new HarrisCornersDetector(k);
-            harris.Measure = HarrisCornerMeasure.Harris;
-            harris.Threshold = threshold;
-            harris.Sigma = sigma;
+            HarrisCornersDetector fast = new HarrisCornersDetector();
+            //{
+            //    Suppress = true, // suppress non-maximum points
+            //    Threshold = 40   // less leads to more corners
+            //};
+
+
+            System.Collections.Generic.List<AForge.IntPoint> corners = fast.ProcessImage(myimage);
+            //Process points
+
+            //To-Do create edge detection matrix
+            
+            //To-Do start with initial point
+
+            //Starting with your intial point in the corner's matrix, look around intial points for points in the edge detection matrix with similar y components
+
+            //Take the distance between your intial point and your second point in the corner's matrix
+
+            //From this second point disregard the previous path and check now the x components in the edge detection matrix for a path to our next point in the corner's matrix
+
+            //Take the distance between the second point and our new third point
+
+            //Rinse and Repeat till end condition is met
+
+            //Once the edge is found go to the po
+            //create 
+            IntPoint P1 = new IntPoint(0, 0);
+            foreach( AForge.IntPoint corner in corners)
+            {
+                float distance = P1.DistanceTo(corner);
+                System.Console.WriteLine("The Distance between P1 some point is ", distance);
+            }
+
+            PointsMarker marker = new PointsMarker(corners, System.Drawing.Color.Green,4);
+
+            // Apply the corner-marking filter
+            Bitmap markers = marker.Apply(myimage);
+
+            markers.Save("c:\\Users\\Main\\Documents\\myNewimage.png", System.Drawing.Imaging.ImageFormat.Png);
+
+            // Show on the screen
+           // ImageBox.Show(markers);
+            //foreach (AForge.IntPoint corner in corners)
+           // {
+            ////    
+           // }
 
             // Create a new AForge's Corner Marker Filter
-            CornersMarker corners = new CornersMarker(harris, System.Drawing.Color.Red);
+           // CornersMarker corners = new CornersMarker(harris, System.Drawing.Color.Red);
 
             // Apply the filter and display it on a picturebox
-            Bitmap myNewimage = corners.Apply(myimage);
+           // Bitmap myNewimage = corners.Apply(myimage);
             
             if (null == this.sensor)
             {
@@ -213,7 +262,8 @@ namespace Microsoft.Samples.Kinect.DepthBasics
             // create frame from the writable bitmap and add to encoder
             //encoder.Frames.Add(BitmapFrame.Create(this.colorBitmap));
             encoder.Frames.Add(BitmapFrame.Create(this.colorBitmap));
-            myNewimage.Save("c:\\Users\\Main\\Documents\\myNewimage.png", System.Drawing.Imaging.ImageFormat.Png);
+           // myNewimage.Save("c:\\Users\\Main\\Documents\\myNewimage.png", System.Drawing.Imaging.ImageFormat.Png);
+            
 
 
 

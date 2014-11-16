@@ -15,10 +15,14 @@ C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.5.2\Samples\C#\Depth
 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.5.2\Samples\C#\DepthBasics-WPF\bin\Debug\AForge.Imaging.dll
 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.5.2\Samples\C#\DepthBasics-WPF\bin\Debug\AForge.Math.dll
 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.5.2\Samples\C#\DepthBasics-WPF\bin\Debug\Accord.dll
-C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.5.2\Samples\C#\DepthBasics-WPF\bin\Debug\Accord.Math.pdb
 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.5.2\Samples\C#\DepthBasics-WPF\bin\Debug\Accord.Math.xml
 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.5.2\Samples\C#\DepthBasics-WPF\bin\Debug\AForge.xml
 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.5.2\Samples\C#\DepthBasics-WPF\bin\Debug\AForge.Imaging.xml
 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.5.2\Samples\C#\DepthBasics-WPF\bin\Debug\AForge.Math.xml
-C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.5.2\Samples\C#\DepthBasics-WPF\bin\Debug\Accord.pdb
 C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.5.2\Samples\C#\DepthBasics-WPF\bin\Debug\Accord.xml
+C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.5.2\Samples\C#\DepthBasics-WPF\bin\Debug\Accord.Imaging.dll
+C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.5.2\Samples\C#\DepthBasics-WPF\bin\Debug\Accord.MachineLearning.dll
+C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.5.2\Samples\C#\DepthBasics-WPF\bin\Debug\Accord.Statistics.dll
+C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.5.2\Samples\C#\DepthBasics-WPF\bin\Debug\Accord.Imaging.xml
+C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.5.2\Samples\C#\DepthBasics-WPF\bin\Debug\Accord.MachineLearning.xml
+C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.5.2\Samples\C#\DepthBasics-WPF\bin\Debug\Accord.Statistics.xml

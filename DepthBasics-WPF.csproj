@@ -40,7 +40,21 @@
     <ApplicationIcon>Images\Kinect.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Accord.Math, Version=2.13.1.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL" />
+    <Reference Include="Accord, Version=2.13.1.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>packages\Accord.2.13.1\lib\net40\Accord.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Imaging, Version=2.13.1.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>packages\Accord.Imaging.2.13.1\lib\net40\Accord.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.MachineLearning, Version=2.13.1.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>packages\Accord.MachineLearning.2.13.1\lib\net40\Accord.MachineLearning.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Math, Version=2.13.1.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>packages\Accord.Math.2.13.1\lib\net40\Accord.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Statistics, Version=2.13.1.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>packages\Accord.Statistics.2.13.1\lib\net40\Accord.Statistics.dll</HintPath>
+    </Reference>
     <Reference Include="AForge">
       <HintPath>packages\AForge.2.2.5\lib\AForge.dll</HintPath>
     </Reference>
