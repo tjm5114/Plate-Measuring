@@ -211,16 +211,20 @@ namespace Microsoft.Samples.Kinect.DepthBasics
 
             //Once the edge is found go to the po
             //create 
-           
+           int[] dimensions = new int[5];
+           double[] scaled = new double[5];
+
+           double scale = 0.528;
             //Measure distance between two points in the corners matrix
             for (int i = 0; i < 4; i++)
             {
                 //if the array element integer is even measure the x distance between itself and the next point in the array
                 if (i%2 == 0)
                 {
-                    float xDist = corners[i + 1].X - corners[i].X;
-                    
+                    int xDist = corners[i + 1].X - corners[i].X;
 
+                    dimensions[i] = xDist;
+                    scaled[i] = xDist * scale;
                     System.Console.WriteLine("From the For-loop: The X  Distance Between the Point ({0}) and Point ({1}) is {2}", corners[i], corners[i+1], xDist);
                     
                 }
@@ -228,7 +232,9 @@ namespace Microsoft.Samples.Kinect.DepthBasics
                 else if (i == 3)               
                 {
 
-                    float yDist = corners[i].Y - corners[0].Y;
+                    int yDist = corners[i].Y - corners[0].Y;
+                    scaled[i] = yDist * scale;
+                    dimensions[i] = yDist;
 
                     System.Console.WriteLine("From the For-loop: The Y Line Distance Between the Point ({0}) and Point ({1}) is {2}", corners[i],corners[0], yDist);
                 } 
@@ -236,9 +242,14 @@ namespace Microsoft.Samples.Kinect.DepthBasics
                 else
                 {
 
-                    float yDist = corners[i + 1].Y - corners[i].Y;
+                    int yDist = corners[i + 1].Y - corners[i].Y;
+                    dimensions[i] = yDist;
+                    scaled[i] = yDist * scale;
                     System.Console.WriteLine("From the For-loop: The Y Line Distance Between the Point ({0}) and Point ({1}) is {2}", corners[i], corners[i + 1], yDist);
                 }
+
+                System.Console.WriteLine("The dimension of side {0} is {1} unscaled", i+1, dimensions[i]);
+                System.Console.WriteLine("The dimension of side {0} is {1} inches scaled", i + 1, scaled[i]);
             }
 
             //create a green label for each corner in image
